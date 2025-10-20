@@ -1,0 +1,74 @@
+/* Secciones (coinciden con tu .site-section) */
+.site-section {
+    padding: 3rem 0 2rem;
+    scroll-margin-top: 5rem; /* para que el ancla no quede tapada por el header */
+  }
+  .site-section + .site-section {
+    border-top: 1px solid #eee;
+  }
+  
+  /* Bloque del iframe que ya usas (.site-embed) */
+  .site-embed {
+    border: 1px solid #e7e7e7;
+    border-radius: .75rem;
+    overflow: hidden;
+    background: #fafafa;
+  }
+  .site-embed iframe {
+    width: 100%;
+    height: 60vh;   /* alto cómodo; ajusta si quieres */
+    border: 0;
+    display: block;
+  }
+  
+  /* Enlace debajo del iframe */
+  .site-link {
+    margin: .5rem 0 1.25rem;
+  }
+  .site-link a {
+    font-weight: 600;
+  }
+  
+  /* Texto de análisis en columnas responsivas (tu .analysis-text) */
+  .analysis-text {
+    columns: 1;
+    column-gap: 2rem;
+    margin: 1rem 0 1.5rem;
+  }
+  @media (min-width: 900px) {
+    .analysis-text { columns: 2; }
+  }
+  .analysis-text p, .analysis-text ul { break-inside: avoid; }
+  
+  /* Galería de capturas (tu .screenshots con figure/img/figcaption) */
+  .screenshots {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 1rem;
+    margin: 1rem 0 2rem;
+  }
+  .screenshots figure {
+    margin: 0;
+    border: 1px solid #eee;
+    border-radius: .5rem;
+    overflow: hidden;
+    background: #fff;
+  }
+  .screenshots img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+  .screenshots figcaption {
+    padding: .5rem .75rem;
+    font-size: .9rem;
+    color: #555;
+  }
+  
+  /* Caja de conclusión (tu .conclusion) */
+  .conclusion {
+    background: #f9fbff;
+    border-left: 4px solid #0a66c2;
+    padding: .75rem 1rem;
+    border-radius: .25rem;
+  }

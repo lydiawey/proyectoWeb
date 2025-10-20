@@ -1,24 +1,62 @@
-
-/* Menú fijo (sticky) */
-header {
-	background: #fff;
-	box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+/* ===== Base limpia y tipografía ===== */
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+  line-height: 1.6;
+  color: #222;
+  background: #fff;
 }
-nav {
-	position: sticky;
-	top: 0;
-	z-index: 1000;
+img { max-width: 100%; height: auto; display: block; }
+a { color: #0a66c2; text-decoration: none; }
+a:hover, a:focus { text-decoration: underline; outline: none; }
+h1, h2, h3 { line-height: 1.2; margin-top: 0; }
+
+/* ===== Contenedor principal que usas en <main class="container"> ===== */
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 1.25rem;
+}
+
+/*  Menú fijo (sticky)  */
+header {
+  background: #fff;
+  box-shadow: 0 2px 5px rgba(0,0,0,.06);
+  position: sticky;  
+  top: 0;
+  z-index: 1000;
+}
+header h1 {
+  margin: 0;
+  padding: 1rem 1.25rem;
+  font-size: clamp(1.25rem, 2.5vw, 1.75rem);
 }
 nav ul {
-	list-style: none;
-	margin: 0;
-	padding: 0;
-	display: flex;
+  list-style: none;
+  margin: 0;
+  padding: .5rem 1.25rem 1rem;
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
 }
-nav ul li {
-	margin-right: 1rem;
+nav a {
+  display: inline-block;
+  padding: .5rem .75rem;
+  border-radius: .5rem;
+  color: #333;
 }
-nav ul li a {
-	text-decoration: none;
-	color: #333;
+nav a:hover, nav a:focus {
+  background: #f2f6ff;
+  color: #0a66c2;
+  text-decoration: none;
+}
+
+/*  Footer  */
+footer {
+  padding: 2rem 1rem;
+  text-align: center;
+  color: #555;
+  border-top: 1px solid #eee;
 }
