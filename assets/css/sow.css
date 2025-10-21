@@ -1,13 +1,13 @@
-/* Secciones (coinciden con tu .site-section) */
-.site-section {
+/* Secciones (site-section) */
+   .site-section {
     padding: 3rem 0 2rem;
-    scroll-margin-top: 5rem; /* para que el ancla no quede tapada por el header */
+    scroll-margin-top: 5rem; /* que el ancla no quede tapada por el header */
   }
   .site-section + .site-section {
     border-top: 1px solid #eee;
   }
   
-  /* Bloque del iframe que ya usas (.site-embed) */
+  /* Iframe del sitio (site-embed) */
   .site-embed {
     border: 1px solid #e7e7e7;
     border-radius: .75rem;
@@ -27,20 +27,63 @@
   }
   .site-link a {
     font-weight: 600;
+    font-size: .95rem;
+    opacity: .9;
   }
-  
-  /* Texto de análisis en columnas responsivas (tu .analysis-text) */
-  .analysis-text {
-    columns: 1;
-    column-gap: 2rem;
+
+  /* =======================
+     NUEVO: Grid análisis (analysis-grid)
+     izquierda/derecha + capturas bajo la izquierda
+     ======================= */
+  .analysis-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;  /* dos columnas iguales */
+    gap: 1.5rem;
     margin: 1rem 0 1.5rem;
   }
-  @media (min-width: 900px) {
-    .analysis-text { columns: 2; }
-  }
-  .analysis-text p, .analysis-text ul { break-inside: avoid; }
   
-  /* Galería de capturas (tu .screenshots con figure/img/figcaption) */
+  /* columnas */
+  .analysis-grid .left { grid-column: 1; }
+  .analysis-grid .right { grid-column: 2; }
+  
+  /* Capturas SOLO bajo la izquierda */
+  .analysis-grid .shots {
+    grid-column: 1;                 /* bajo la columna izquierda */
+    display: grid;
+    grid-template-columns: 1fr;     /* una por fila (limpio) */
+    gap: 1rem;
+  }
+  
+  /* Estilo de figuras en shots */
+  .analysis-grid figure {
+    margin: 0;
+    border: 1px solid #eee;
+    border-radius: .5rem;
+    overflow: hidden;
+    background: #fff;
+  }
+  .analysis-grid img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+  .analysis-grid figcaption {
+    padding: .5rem .75rem;
+    font-size: .9rem;
+    color: #555;
+  }
+  
+  /* En pantallas pequeñas: una sola columna, orden natural */
+  @media (max-width: 899px) {
+    .analysis-grid { grid-template-columns: 1fr; }
+    .analysis-grid .left,
+    .analysis-grid .right,
+    .analysis-grid .shots { grid-column: 1; }
+  }
+  
+  /* =======================
+     Galería general (screenshots) – si la usas aparte
+     ======================= */
   .screenshots {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
@@ -65,10 +108,52 @@
     color: #555;
   }
   
-  /* Caja de conclusión (tu .conclusion) */
+  /* Conclusión */
   .conclusion {
     background: #f9fbff;
     border-left: 4px solid #0a66c2;
     padding: .75rem 1rem;
     border-radius: .25rem;
   }
+
+ 
+
+
+ /* Flujo en columnas que rellena huecos */
+.analysis-flow {
+  columns: 1;
+  column-gap: 2rem;
+  margin: 1rem 0 1.5rem;
+}
+@media (min-width: 900px) {
+  .analysis-flow { columns: 2; }
+}
+
+/* Solo los bloques 'intro' y 'shots' se mantienen íntegros en una columna */
+.analysis-flow .block {
+  break-inside: avoid;
+  -webkit-column-break-inside: avoid;
+  -moz-column-break-inside: avoid;
+  margin-bottom: 1rem;
+}
+
+/* La lista puede romperse si hace falta; no pongas 'block' aquí */
+.analysis-flow .analysis {
+  break-inside: auto;
+}
+
+/* Estilo de capturas dentro del flujo */
+.analysis-flow .shots {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: .75rem;
+}
+.analysis-flow .shots figure {
+  margin: 0;
+  border: 1px solid #eee;
+  border-radius: .5rem;
+  overflow: hidden;
+  background: #fff;
+}
+.analysis-flow .shots img { width: 100%; height: auto; display: block; }
+.analysis-flow .shots figcaption { padding: .5rem .75rem; font-size: .9rem; color: #555; }
