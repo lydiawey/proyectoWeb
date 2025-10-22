@@ -1,13 +1,13 @@
 /* Secciones (site-section) */
    .site-section {
     padding: 3rem 0 2rem;
-    scroll-margin-top: 5rem; /* que el ancla no quede tapada por el header */
+    scroll-margin-top: 5rem; 
   }
   .site-section + .site-section {
     border-top: 1px solid #eee;
   }
   
-  /* Iframe del sitio (site-embed) */
+  /* Iframe del sitio */
   .site-embed {
     border: 1px solid #e7e7e7;
     border-radius: .75rem;
@@ -16,7 +16,7 @@
   }
   .site-embed iframe {
     width: 100%;
-    height: 60vh;   /* alto cómodo; ajusta si quieres */
+    height: 60vh;  
     border: 0;
     display: block;
   }
@@ -81,9 +81,7 @@
     .analysis-grid .shots { grid-column: 1; }
   }
   
-  /* =======================
-     Galería general (screenshots) – si la usas aparte
-     ======================= */
+  /* Galería general (screenshots) */
   .screenshots {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
