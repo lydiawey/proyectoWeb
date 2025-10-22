@@ -157,3 +157,45 @@
 }
 .analysis-flow .shots img { width: 100%; height: auto; display: block; }
 .analysis-flow .shots figcaption { padding: .5rem .75rem; font-size: .9rem; color: #555; }
+
+
+/* --- Distribución tipo mosaico dentro de .shots --- */
+.shots {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.shots figure {
+  margin: 0;
+  border: 1px solid #eee;
+  border-radius: .5rem;
+  overflow: hidden;
+  background: #fff;
+}
+
+/* todas las imágenes y vídeos con mismo estilo base */
+.shots img,
+.shots video,
+.shots iframe {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+  border: none;
+  aspect-ratio: 16 / 9;
+}
+
+/* el figcaption igual para todo */
+.shots figcaption {
+  padding: .5rem .75rem;
+  font-size: .9rem;
+  color: #555;
+  background: #fafafa;
+}
+
+/* --- clase especial para imágenes grandes --- */
+.shots .wide {
+  grid-column: 1 / -1; /* ocupa todo el ancho de la cuadrícula */
+}
